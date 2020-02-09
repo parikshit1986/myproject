@@ -1,0 +1,13 @@
+.DS_Store
+.sonar
+
+# scheme stuff
+xcuserdata/
+
+# build directory
+build/
+
+# stuff inside of the xcodeproj
+*.xcodeproj/*.modem1
+*.xcodeproj/*.ode1v3
+*.xcodeproj/*.pbxuser

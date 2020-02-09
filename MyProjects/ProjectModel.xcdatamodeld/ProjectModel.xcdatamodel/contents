@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<model userDefinedModelVersionIdentifier="" type="com.apple.IDECoreDataModeler.DataModel" documentVersion="1.0" lastSavedToolsVersion="5064" systemVersion="13D65" minimumToolsVersion="Xcode 4.3" macOSVersion="Automatic" iOSVersion="Automatic">
+    <entity name="Barrier" representedClassName="Barrier" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="barriers" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Experience" representedClassName="Experience" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onLeft" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="experiences" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Implication" representedClassName="Implication" syncable="YES">
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="onLeft" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="implications" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Project" representedClassName="Project" syncable="YES">
+        <attribute name="intentions" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="objective" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="barriers" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Barrier" inverseName="project" inverseEntity="Barrier" syncable="YES"/>
+        <relationship name="experiences" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Experience" inverseName="project" inverseEntity="Experience" syncable="YES"/>
+        <relationship name="implications" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Implication" inverseName="project" inverseEntity="Implication" syncable="YES"/>
+        <relationship name="stakeholders" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Stakeholder" inverseName="projects" inverseEntity="Stakeholder" syncable="YES"/>
+        <relationship name="tasks" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Task" inverseName="project" inverseEntity="Task" syncable="YES"/>
+    </entity>
+    <entity name="Stakeholder" representedClassName="Stakeholder" syncable="YES">
+        <attribute name="picture" optional="YES" attributeType="Binary" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="rank" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <attribute name="shortName" optional="YES" attributeType="String" syncable="YES"/>
+        <relationship name="projects" optional="YES" toMany="YES" deletionRule="Nullify" destinationEntity="Project" inverseName="stakeholders" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <entity name="Task" representedClassName="Task" syncable="YES">
+        <attribute name="calendarReference" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="completed" optional="YES" attributeType="Boolean" syncable="YES"/>
+        <attribute name="dueDate" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="longDescription" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="name" optional="YES" attributeType="String" syncable="YES"/>
+        <attribute name="position" optional="YES" attributeType="Integer 16" defaultValueString="0" syncable="YES"/>
+        <relationship name="project" optional="YES" maxCount="1" deletionRule="Nullify" destinationEntity="Project" inverseName="tasks" inverseEntity="Project" syncable="YES"/>
+    </entity>
+    <elements>
+        <element name="Barrier" positionX="-153" positionY="-352" width="128" height="88"/>
+        <element name="Experience" positionX="-2" positionY="-180" width="128" height="103"/>
+        <element name="Implication" positionX="-38" positionY="-270" width="128" height="103"/>
+        <element name="Project" positionX="-342" positionY="-225" width="128" height="163"/>
+        <element name="Stakeholder" positionX="-0" positionY="-72" width="128" height="118"/>
+        <element name="Task" positionX="-74" positionY="29" width="128" height="148"/>
+    </elements>
+</model>
